@@ -613,6 +613,12 @@ const headerLinks = document.querySelector(".header-links");
 const closeButton = document.querySelector(".header-search__close");
 
 if (searchForm && searchButton && closeButton) {
+  const input = searchForm.querySelector("input");
+
+  input?.addEventListener("input", () => {
+    searchForm.classList.toggle("written", input.value);
+  });
+
   if (headerLinks) {
     const headerLinksWidth = parseFloat(getComputedStyle(headerLinks).inlineSize);
     const searchFormRight = `${headerLinksWidth - 27}px`;

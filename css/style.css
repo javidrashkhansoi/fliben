@@ -1401,12 +1401,13 @@ body::after {
   background-color: rgba(195, 222, 200, 0.5);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  -webkit-transform: translate(0, 100%);
-  transform: translate(0, 100%);
+  -webkit-transform: translate(0, 200%);
+  transform: translate(0, 200%);
   transition-property: background-color, -webkit-transform;
   transition-property: background-color, transform;
   transition-property: background-color, transform, -webkit-transform;
   transition-duration: 0.3s;
+  will-change: transform;
 }
 
 .scroll-lock body {
@@ -1657,33 +1658,33 @@ body::after {
   color: rgba(38, 38, 38, 0);
 }
 
-.header-search input:not(:-moz-placeholder-shown) ~ .header-search__button {
+.header-search input:not(input:-moz-placeholder-shown) ~ .header-search__button {
   pointer-events: all;
 }
 
-.header-search input:not(:placeholder-shown) ~ .header-search__button {
+.header-search input:not(input:placeholder-shown) ~ .header-search__button {
   pointer-events: all;
 }
 
-.header-search input:not(:-moz-placeholder-shown) ~ .header-search__button:focus-visible {
+.header-search input:not(input:-moz-placeholder-shown) ~ .header-search__button:focus-visible {
   outline-width: 2px;
   outline-style: solid;
   outline-color: var(--outline-color, currentColor);
   outline-offset: 2px;
 }
 
-.header-search input:not(:placeholder-shown) ~ .header-search__button:focus-visible {
+.header-search input:not(input:placeholder-shown) ~ .header-search__button:focus-visible {
   outline-width: 2px;
   outline-style: solid;
   outline-color: var(--outline-color, currentColor);
   outline-offset: 2px;
 }
 
-.header-search input:not(:-moz-placeholder-shown) ~ .header-search__button svg {
+.header-search input:not(input:-moz-placeholder-shown) ~ .header-search__button svg {
   stroke: #262626;
 }
 
-.header-search input:not(:placeholder-shown) ~ .header-search__button svg {
+.header-search input:not(input:placeholder-shown) ~ .header-search__button svg {
   stroke: #262626;
 }
 
@@ -1700,10 +1701,25 @@ body::after {
   pointer-events: none;
 }
 
+.written .header-search__button {
+  pointer-events: all;
+}
+
+.written .header-search__button:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--outline-color, currentColor);
+  outline-offset: 2px;
+}
+
 .header-search__button svg {
   stroke: rgba(38, 38, 38, 0.5);
   transition-property: stroke;
   transition-duration: 0.3s;
+}
+
+.written .header-search__button svg {
+  stroke: #262626;
 }
 
 .header-search__close {
@@ -3993,6 +4009,7 @@ html:not(.scrolled) .up {
     transition-property: opacity, visibility, transform;
     transition-property: opacity, visibility, transform, -webkit-transform;
     transition-duration: 0.3s;
+    will-change: transform;
     overflow: auto;
   }
 
@@ -4475,19 +4492,27 @@ html:not(.scrolled) .up {
     stroke: #3c6c0f;
   }
 
-  .header-search input:not(:-moz-placeholder-shown) ~ .header-search__button:hover {
+  .header-search input:not(input:-moz-placeholder-shown) ~ .header-search__button:hover {
     outline: none;
   }
 
-  .header-search input:not(:placeholder-shown) ~ .header-search__button:hover {
+  .header-search input:not(input:placeholder-shown) ~ .header-search__button:hover {
     outline: none;
   }
 
-  .header-search input:not(:-moz-placeholder-shown) ~ .header-search__button:hover svg {
+  .header-search input:not(input:-moz-placeholder-shown) ~ .header-search__button:hover svg {
     stroke: #3c6c0f;
   }
 
-  .header-search input:not(:placeholder-shown) ~ .header-search__button:hover svg {
+  .header-search input:not(input:placeholder-shown) ~ .header-search__button:hover svg {
+    stroke: #3c6c0f;
+  }
+
+  .written .header-search__button:hover {
+    outline: none;
+  }
+
+  .written .header-search__button:hover svg {
     stroke: #3c6c0f;
   }
 
@@ -4694,12 +4719,17 @@ html:not(.scrolled) .up {
     opacity: 0.5;
   }
 
-  .header-search input:not(:-moz-placeholder-shown) ~ .header-search__button:active {
+  .header-search input:not(input:-moz-placeholder-shown) ~ .header-search__button:active {
     outline: none;
     opacity: 0.5;
   }
 
-  .header-search input:not(:placeholder-shown) ~ .header-search__button:active {
+  .header-search input:not(input:placeholder-shown) ~ .header-search__button:active {
+    outline: none;
+    opacity: 0.5;
+  }
+
+  .written .header-search__button:active {
     outline: none;
     opacity: 0.5;
   }
