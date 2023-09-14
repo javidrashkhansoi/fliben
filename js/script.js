@@ -1347,7 +1347,6 @@ texts?.forEach(text => {
     /** @type {string} */
     const pInnerText = p.innerHTML.trim().replaceAll(/\n/g, "");
     const words = pInnerText.split(" ").filter(Boolean);
-    console.log(words);
     const showText = words.slice(0, wordCount).join(" ").trim();
     const hiddenText = words.slice(wordCount).join(" ").trim();
     const paragraphsLength = paragraphs.length;
