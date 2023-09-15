@@ -8151,11 +8151,11 @@ function Controller(_ref) {
       if (duration !== 0) {
         c.transitionStart();
         if (c.params.autoHeight) {
-          nextTick(() => {
+          utils_nextTick(() => {
             c.updateAutoHeight();
           });
         }
-        elementTransitionEnd(c.wrapperEl, () => {
+        utils_elementTransitionEnd(c.wrapperEl, () => {
           if (!controlled) return;
           c.transitionEnd();
         });
@@ -10570,11 +10570,22 @@ if (heroSlider) {
 
 
 
+let description_images, description_description;
+
+const descriptionImages = document.querySelector(".description-images");
+
+if (descriptionImages) {
+  description_images = new Swiper(descriptionImages, {
+    slidesPerView: 1,
+    allowTouchMove: false,
+  });
+}
+
 const descriptionSlider = document.querySelector(".description-slider");
 
 if (descriptionSlider) {
-  const slider = new Swiper(descriptionSlider, {
-    modules: [Keyboard, Navigation, A11y, Pagination],
+  description_description = new Swiper(descriptionSlider, {
+    modules: [Keyboard, Navigation, A11y, Pagination, Controller],
     navigation: {
       prevEl: descriptionSlider.querySelector(".slider-arrow--prev"),
       nextEl: descriptionSlider.querySelector(".slider-arrow--next"),
@@ -10595,6 +10606,9 @@ if (descriptionSlider) {
     },
     slidesPerView: 1,
     spaceBetween: 20,
+    controller: {
+      control: description_images,
+    },
   });
 }
 
