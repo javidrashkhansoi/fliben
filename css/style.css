@@ -2465,7 +2465,6 @@ html:not(.scrolled) .up {
 .description__content {
   --padding-inner: 19px;
   align-self: center;
-  padding-inline: var(--padding-inner) var(--padding-inline);
   overflow: hidden;
   -webkit-padding-after: 115px;
   padding-block-end: 115px;
@@ -2522,7 +2521,6 @@ html:not(.scrolled) .up {
 }
 
 .description-card__image {
-  margin-inline: calc(19 * -1px);
   -webkit-margin-after: 115px;
   margin-block-end: 115px;
 }
@@ -3113,6 +3111,7 @@ html:not(.scrolled) .up {
   }
 
   .description__content {
+    padding-inline: var(--padding-inner) var(--padding-inline);
     -webkit-padding-before: 115px;
     padding-block-start: 115px;
   }
@@ -4174,12 +4173,16 @@ html:not(.scrolled) .up {
     aspect-ratio: 360/325;
   }
 
-  .description-slider {
-    overflow: visible;
+  .description-slider__buttons {
+    padding-inline: 19px;
   }
 
   .description-card__image {
     aspect-ratio: 360/325;
+  }
+
+  .description-card__inner {
+    padding-inline: 19px;
   }
 
   .videogallery-slider {
